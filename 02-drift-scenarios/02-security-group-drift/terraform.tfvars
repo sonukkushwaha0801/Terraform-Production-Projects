@@ -1,0 +1,5 @@
+aws_region       = "ap-south-1"
+instance_name    = "security-drift-server"
+instance_type    = "t3.micro"
+ami_id           = "ami-07a00cf47dbbc844c"
+allowed_ssh_cidr = "10.0.0.0/24"

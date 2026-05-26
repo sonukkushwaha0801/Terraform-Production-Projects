@@ -1,0 +1,5 @@
+aws_region     = "ap-south-1"
+instance_name  = "drift-hotfix-server"
+instance_type  = "t3.micro"
+ami_id         = "ami-07a00cf47dbbc844c"
+ssh_allowed_ip = "0.0.0.0/0"

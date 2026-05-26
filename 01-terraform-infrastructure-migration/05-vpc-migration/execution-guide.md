@@ -1,4 +1,4 @@
-# Security Group Migration Execution Guide
+# VPC Migration Execution Guide
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ aws sts get-caller-identity
 # Project Structure
 
 ```text
-04-security-group-migration/
+05-vpc-migration/
 ├── scripts/
 │   ├── migrate.sh
 │   └── state-file.sh
@@ -36,6 +36,7 @@ aws sts get-caller-identity
 ├── .gitignore
 ├── import.tf
 ├── main.tf
+├── outputs.tf
 ├── provider.tf
 ├── terraform.tfvars
 ├── variables.tf
@@ -55,16 +56,16 @@ terraform.tfvars
 Update values:
 
 ```hcl
-region            = "ap-south-1"
-security_group_id = "sg-xxxxxxxxxxxxxxxxx"
+region = "ap-south-1"
+vpc_id = "vpc-xxxxxxxxxxxxxxxxx"
 ```
 
 Parameter Details:
 
-| Variable Name     | Description                      |
-| ----------------- | -------------------------------- |
-| region            | AWS region of the Security Group |
-| security_group_id | Existing Security Group ID       |
+| Variable Name | Description           |
+| ------------- | --------------------- |
+| region        | AWS region of the VPC |
+| vpc_id        | Existing VPC ID       |
 
 ---
 
@@ -102,12 +103,12 @@ main.tf
 
 Review generated configuration carefully.
 
-Security Group migration may generate:
-- ingress rules
-- egress rules
-- IPv4 CIDR rules
-- IPv6 CIDR rules
-- security group references
+VPC migration may generate:
+- VPC configuration
+- DNS support configuration
+- DNS hostnames configuration
+- DHCP option associations
+- tags
 - computed attributes
 
 Recommended Cleanup:
@@ -116,7 +117,7 @@ Recommended Cleanup:
 - Remove duplicated values
 - Improve formatting
 - Keep configuration production-readable
-- Carefully validate ingress and egress rules
+- Carefully validate CIDR blocks and DNS settings
 
 Goal:
 - Maintain clean and manageable Terraform code
@@ -136,12 +137,12 @@ This will:
 - No validation errors
 - No unintended infrastructure changes
 - Validate Terraform configuration
-- Import Security Group into Terraform state
-- Start Terraform management for the existing Security Group
+- Import VPC into Terraform state
+- Start Terraform management for the existing VPC
 
 Expected Result:
 
-- Existing Security Group becomes managed by Terraform
+- Existing VPC becomes managed by Terraform
 - No resource recreation should occur
 
 ---
@@ -157,7 +158,7 @@ terraform state list
 Expected Output:
 
 ```text
-aws_security_group.main
+aws_vpc.main
 ```
 
 Verify infrastructure drift:
@@ -176,9 +177,9 @@ No changes. Infrastructure is up-to-date.
 
 # Important Notes
 
-- Security Group migration is highly sensitive
-- Incorrect rule cleanup may expose infrastructure publicly
-- Always review ingress and egress rules carefully
+- VPC migration is foundational for networking infrastructure
+- Incorrect changes may impact connected infrastructure
+- Carefully validate CIDR blocks and DNS configurations
 - This project only performs Terraform migration
 - Remote backend is intentionally excluded
 - State locking is intentionally excluded

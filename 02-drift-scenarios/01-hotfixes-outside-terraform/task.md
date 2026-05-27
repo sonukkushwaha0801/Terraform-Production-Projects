@@ -21,7 +21,29 @@ Your task is to:
 5. Reconcile infrastructure safely
 
 ---
+## Industry Value
 
+| Category             | Value                                      |
+| -------------------- | ------------------------------------------ |
+| Frequency            | <span style="color:orange">High</span>     |
+| Security Risk        | <span style="color:orange">Medium</span>   |
+| Enterprise Relevance | <span style="color:green">High</span>      |
+| Interview Value      | <span style="color:green">Excellent</span> |
+
+### Real Production Impact
+
+This is one of the most common Infrastructure-as-Code drift scenarios.
+
+During production incidents, engineers frequently apply manual hotfixes directly from AWS Console or CLI without updating Terraform configuration.
+
+This causes:
+- infrastructure inconsistency
+- state drift
+- governance violations
+- undocumented production changes
+
+Understanding hotfix reconciliation is a critical DevOps operational skill.
+---
 ## Infrastructure
 
 Provision the following:

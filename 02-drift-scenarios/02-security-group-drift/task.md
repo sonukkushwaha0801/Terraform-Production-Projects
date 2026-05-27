@@ -11,7 +11,35 @@ Terraform configuration is not updated.
 This creates infrastructure drift and introduces a potential security risk.
 
 ---
+## Industry Value
 
+| Category | Value |
+|---|---|
+| Frequency | <span style="color:red">Very High</span> |
+| Security Risk | <span style="color:red">Critical</span> |
+| Enterprise Relevance | <span style="color:green">Excellent</span> |
+| Interview Value | <span style="color:green">Excellent</span> |
+
+### Real Production Impact
+
+Security Group drift is one of the most dangerous and common cloud security issues.
+
+Engineers often temporarily expose:
+- SSH ports
+- databases
+- internal applications
+
+during troubleshooting or emergency incidents.
+
+If not reverted properly, this may lead to:
+- public exposure
+- brute-force attacks
+- compliance violations
+- security incidents
+
+Terraform drift detection helps restore Infrastructure-as-Code governance and security posture.
+
+---
 ## Infrastructure
 
 Provision the following:

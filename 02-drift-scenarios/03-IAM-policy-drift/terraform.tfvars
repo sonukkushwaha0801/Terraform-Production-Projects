@@ -1,0 +1,6 @@
+aws_region = "ap-south-1"
+role_name = "terraform-drift-ec2-role"
+instance_profile_name = "terraform-drift-instance-profile"
+instance_name = "iam-drift-server"
+instance_type = "t3.micro"
+ami_id = "ami-07a00cf47dbbc844c"

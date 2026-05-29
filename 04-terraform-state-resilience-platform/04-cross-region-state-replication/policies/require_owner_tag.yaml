@@ -1,0 +1,14 @@
+metadata:
+  id: CKV_CUSTOM_4
+  name: Ensure Owner tag exists
+  category: GENERAL_SECURITY
+
+definition:
+  cond_type: attribute
+
+  resource_types:
+    - aws_s3_bucket
+
+  attribute: tags.Owner
+
+  operator: exists

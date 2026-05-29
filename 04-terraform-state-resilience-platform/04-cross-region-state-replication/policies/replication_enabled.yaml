@@ -1,0 +1,10 @@
+metadata:
+  id: CKV_CUSTOM_3
+  name: Ensure replication is configured
+  category: BACKUP_AND_RECOVERY
+
+definition:
+  cond_type: resource
+
+  resource_types:
+    - aws_s3_bucket_replication_configuration

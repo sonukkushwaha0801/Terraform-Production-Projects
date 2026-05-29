@@ -1,0 +1,8 @@
+aws_region = "ap-south-1"
+environment = "shared"
+owner = "platform-team"
+cost_center = "cc-1001"
+state_bucket_name = "terraform-corruption-recovery-demo"
+lock_table_name = "terraform-corruption-locks"
+ami_id = "ami-0f58b397bc5c1f2e8"
+instance_type = "t2.micro"

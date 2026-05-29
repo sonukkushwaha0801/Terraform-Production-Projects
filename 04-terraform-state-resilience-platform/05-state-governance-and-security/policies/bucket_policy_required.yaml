@@ -1,0 +1,10 @@
+metadata:
+  id: CKV_CUSTOM_2
+  name: Ensure bucket policy exists
+  category: GENERAL_SECURITY
+
+definition:
+  cond_type: resource
+
+  resource_types:
+    - aws_s3_bucket_policy

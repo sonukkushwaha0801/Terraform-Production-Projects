@@ -1,0 +1,42 @@
+name: Terraform Backup Validation
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  terraform-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Checkov Scan
+        uses: bridgecrewio/checkov-action@master
+        with:
+          soft_fail: true
+
+      - name: Governance Validation
+        run: |
+          echo "Running backup governance validation..."
+          "chmod +x scripts/validate-governance.sh"
+          "./scripts/validate-governance.sh"

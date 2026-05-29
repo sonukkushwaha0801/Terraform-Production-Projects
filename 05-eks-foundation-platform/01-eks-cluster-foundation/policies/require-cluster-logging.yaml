@@ -1,0 +1,10 @@
+metadata:
+  id: CUSTOM_CLUSTER_LOGGING
+  name: Ensure Cluster Logging Exists
+  category: LOGGING
+
+definition:
+  cond_type: resource
+  resource_types:
+    - aws_cloudwatch_log_group
+  operator: exists

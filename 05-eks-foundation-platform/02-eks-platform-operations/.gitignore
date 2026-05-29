@@ -1,0 +1,28 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+crash.log
+.terraform.lock.hcl
+
+# Variables
+*.auto.tfvars
+
+# Plans
+*.tfplan
+
+# Secrets
+*.pem
+*.key
+.env
+
+# Reports
+platform-report.txt
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

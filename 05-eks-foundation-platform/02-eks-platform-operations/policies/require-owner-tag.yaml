@@ -1,0 +1,11 @@
+metadata:
+  id: CUSTOM_OWNER_TAG
+  name: Require Owner Tag
+  category: GENERAL_SECURITY
+
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_cloudwatch_log_group
+  attribute: tags.Owner
+  operator: exists

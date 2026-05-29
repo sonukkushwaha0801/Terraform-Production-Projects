@@ -1,0 +1,11 @@
+metadata:
+  id: CUSTOM_COSTCENTER_TAG
+  name: Require CostCenter Tag
+  category: GENERAL_SECURITY
+
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_cloudwatch_log_group
+  attribute: tags.CostCenter
+  operator: exists

@@ -1,0 +1,11 @@
+metadata:
+  id: CUSTOM_COSTCENTER_TAG
+  name: Ensure CostCenter Tag Exists
+  category: GENERAL_SECURITY
+
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_vpc
+  attribute: tags.CostCenter
+  operator: exists

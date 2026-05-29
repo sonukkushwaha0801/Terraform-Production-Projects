@@ -1,0 +1,11 @@
+metadata:
+  id: CUSTOM_OWNER_TAG
+  name: Ensure Owner Tag Exists
+  category: GENERAL_SECURITY
+
+definition:
+  cond_type: attribute
+  resource_types:
+    - aws_vpc
+  attribute: tags.Owner
+  operator: exists

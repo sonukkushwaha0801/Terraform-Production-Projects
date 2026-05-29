@@ -1,0 +1,13 @@
+metadata:
+  id: CUSTOM_PRIVATE_NODEGROUP
+  name: Ensure EKS Nodes Are Not Public
+  category: NETWORKING
+
+definition:
+  and:
+    - cond_type: attribute
+      resource_types:
+        - aws_subnet
+      attribute: map_public_ip_on_launch
+      operator: not_equals
+      value: true
